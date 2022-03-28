@@ -1,0 +1,10 @@
+{
+    "nuxt.isNuxtApp": true,
+    "appService.showBuildDuringDeployPrompt": true,
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/db7b506e-2ded-4de2-9d5b-dafe54fdf032/resourceGroups/client/providers/Microsoft.Web/sites/buget-performance-management-system",
+    "appService.deploySubpath": "."
+}
