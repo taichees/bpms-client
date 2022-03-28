@@ -23,7 +23,28 @@
                 "<node_internals>/**"
             ],
             "type": "pwa-node"
+        },
+        {
+            "name": "install client side",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "install"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "pwa-node"
         }
-        
+    ],
+    "compounds": [
+        {
+            "name": "Launch all",
+            "configurations": [
+                "run client side",
+                "Launch Chrome"
+            ]
+        }
     ]
 }
