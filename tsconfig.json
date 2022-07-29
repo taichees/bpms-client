@@ -25,9 +25,9 @@
     },
     "types": [
       "@nuxt/types",
-      "@nuxtjs/axios",
       "@types/node"
-    ]
+    ],
+    "jsx": "preserve"
   },
   "exclude": [
     "node_modules",
