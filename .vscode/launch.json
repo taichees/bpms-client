@@ -29,7 +29,7 @@
             "request": "launch",
             "runtimeArgs": [
                 "run-script",
-                "install"
+                "init-client"
             ],
             "runtimeExecutable": "npm",
             "skipFiles": [
