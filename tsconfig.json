@@ -25,6 +25,7 @@
     },
     "types": [
       "@nuxt/types",
+      "@nuxtjs/axios", // 型を追加
       "@types/node"
     ],
     "jsx": "preserve"
