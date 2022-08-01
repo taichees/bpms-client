@@ -1,3 +1,4 @@
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -40,5 +41,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
+
+  axios: {
+    baseURL: process.env.BASE_URL || 'http://localhost:5000/',
+  },
+
 }

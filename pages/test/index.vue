@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import axios from "axios";
+// import axios from "axios";
 export default {
   layout: "noNavbar",
   name: "TestPage",
@@ -39,11 +39,12 @@ export default {
       str_text: "",
     };
   },
-  async asyncData() {
+  // @ts-ignore
+  async asyncData({ $axios }) {
     // 取得先のURL
-    const url = "http://localhost:5000/test";
+    const url = "/test";
     // リクエスト（Get）
-    const response = await axios.get(url);
+    const response = await $axios.get(url);
     // 配列で返ってくるのでJSONにして返却
     // console.log(response);
     return {
@@ -53,9 +54,10 @@ export default {
   methods: {
     // name_text: "",
     // str_text: "",
-    async insert_data() {
+    // @ts-ignore
+    async insert_data({ $axios }) {
       // 取得先のURL
-      const url = "http://localhost:5000/test";
+      const url = "/test";
 
       const data = {
         // @ts-ignore
@@ -64,7 +66,7 @@ export default {
         str: this.str_text,
       };
       // リクエスト（DELETE）
-      const response = await axios.post(url, data);
+      const response = await $axios.post(url, data);
       // 配列で返ってくるのでJSONにして返却
       // console.log(response);
 
@@ -72,11 +74,12 @@ export default {
       window.location.href = location;
       return {};
     },
-    async delete_data(id: string) {
+    // @ts-ignore
+    async delete_data(id: string, { $axios }) {
       // 取得先のURL
-      const url = "http://localhost:5000/test";
+      const url = "/test";
       // リクエスト（DELETE）
-      const response = await axios.delete(url, { data: { _id: id } });
+      const response = await $axios.delete(url, { data: { _id: id } });
       // 配列で返ってくるのでJSONにして返却
       // console.log(response);
 
