@@ -55,7 +55,7 @@ export default {
     // name_text: "",
     // str_text: "",
     // @ts-ignore
-    async insert_data({ $axios }) {
+    async insert_data() {
       // 取得先のURL
       const url = "/test";
 
@@ -66,7 +66,8 @@ export default {
         str: this.str_text,
       };
       // リクエスト（DELETE）
-      const response = await $axios.post(url, data);
+      // @ts-ignore
+      const response = await this.$axios.post(url, data);
       // 配列で返ってくるのでJSONにして返却
       // console.log(response);
 
@@ -75,11 +76,12 @@ export default {
       return {};
     },
     // @ts-ignore
-    async delete_data(id: string, { $axios }) {
+    async delete_data(id: string) {
       // 取得先のURL
       const url = "/test";
       // リクエスト（DELETE）
-      const response = await $axios.delete(url, { data: { _id: id } });
+      // @ts-ignore
+      const response = await this.$axios.delete(url, { data: { _id: id } });
       // 配列で返ってくるのでJSONにして返却
       // console.log(response);
 
