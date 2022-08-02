@@ -46,5 +46,10 @@ export default {
   axios: {
     baseURL: process.env.BASE_URL || 'http://localhost:5000/',
   },
-
+  
+  pwa: {
+    manifest: {
+      lang: 'ja',
+    },
+  },
 }
