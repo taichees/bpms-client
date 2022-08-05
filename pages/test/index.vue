@@ -16,11 +16,13 @@
           <th>文字列</th>
           <th>操作</th>
         </tr>
-        <tr v-for="(item, i) in datas" :key="i">
-          <td>{{ i }}</td>
+        <tr v-for="(item, i) in alldatas" :key="i">
+          <td>{{ i + 1 }}</td>
           <td>{{ item.name }}</td>
           <td>{{ item.str }}</td>
-          <td><button v-on:click.stop="delete_data(item._id)">削除</button></td>
+          <td>
+            <button v-on:click.stop="deleteDatas(item._id)">削除</button>
+          </td>
         </tr>
       </table>
     </div>
@@ -28,66 +30,34 @@
 </template>
 
 <script lang="ts">
-// import axios from "axios";
+import { mapGetters, mapActions } from "vuex";
 export default {
-  layout: "noNavbar",
   name: "TestPage",
   data: () => {
     return {
-      datas: null,
       name_text: "",
       str_text: "",
     };
   },
   // @ts-ignore
-  async asyncData({ $axios }) {
-    // 取得先のURL
-    const url = "/test";
-    // リクエスト（Get）
-    const response = await $axios.get(url);
-    // 配列で返ってくるのでJSONにして返却
-    // console.log(response);
-    return {
-      datas: response.data,
-    };
+  async fetch({ store }) {
+    await store.dispatch("test/getDatas");
+  },
+  computed: {
+    // @ts-ignore
+    ...mapGetters("test", ["alldatas"]),
   },
   methods: {
-    // name_text: "",
-    // str_text: "",
-    // @ts-ignore
+    ...mapActions("test", ["insertDatas", "deleteDatas"]),
     async insert_data() {
-      // 取得先のURL
-      const url = "/test";
-
       const data = {
         // @ts-ignore
         name: this.name_text,
         // @ts-ignore
         str: this.str_text,
       };
-      // リクエスト（DELETE）
       // @ts-ignore
-      const response = await this.$axios.post(url, data);
-      // 配列で返ってくるのでJSONにして返却
-      // console.log(response);
-
-      const location = "/test";
-      window.location.href = location;
-      return {};
-    },
-    // @ts-ignore
-    async delete_data(id: string) {
-      // 取得先のURL
-      const url = "/test";
-      // リクエスト（DELETE）
-      // @ts-ignore
-      const response = await this.$axios.delete(url, { data: { _id: id } });
-      // 配列で返ってくるのでJSONにして返却
-      // console.log(response);
-
-      const location = "/test";
-      window.location.href = location;
-      return {};
+      await this.insertDatas(data);
     },
   },
 };
