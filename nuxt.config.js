@@ -46,5 +46,6 @@ export default {
   axios: {
     baseURL: process.env.BASE_URL || 'http://localhost:5000/',
   },
-
+  // loading: './components/Loading/loading.vue',
+  loading: true,
 }

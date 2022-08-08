@@ -50,6 +50,8 @@ export default {
   methods: {
     ...mapActions("test", ["insertDatas", "deleteDatas"]),
     async insert_data() {
+      // @ts-ignore
+      this.$nuxt.$loading.start();
       const data = {
         // @ts-ignore
         name: this.name_text,
@@ -58,6 +60,14 @@ export default {
       };
       // @ts-ignore
       await this.insertDatas(data);
+      // @ts-ignore
+      this.name_text = "";
+      // @ts-ignore
+      this.str_text = "";
+      setTimeout(() => {
+        // @ts-ignore
+        this.$nuxt.$loading.finish();
+      }, 3000);
     },
   },
 };
