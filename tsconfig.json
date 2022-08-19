@@ -21,6 +21,9 @@
       ],
       "@/*": [
         "./*"
+      ],
+      "vuedraggable": [
+        "./types/vuedraggable"
       ]
     },
     "types": [
