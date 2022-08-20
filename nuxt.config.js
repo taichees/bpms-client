@@ -52,4 +52,6 @@ export default {
       lang: 'ja',
     },
   },
+  // loading: './components/Loading/loading.vue',
+  loading: true,
 }

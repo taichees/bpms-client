@@ -13,7 +13,7 @@
         <!-- ハンバーガーメニュー -->
         <ul class="nav-list" @click="$emit('close')">
           <li class="nav-item"><nuxt-link to="/test">テスト</nuxt-link></li>
-          <li class="nav-item"><nuxt-link to="/about">About</nuxt-link></li>
+          <li class="nav-item"><nuxt-link to="/csv">csv</nuxt-link></li>
           <li class="nav-item"><nuxt-link to="/admin">管理画面</nuxt-link></li>
         </ul>
       </div>
