@@ -104,6 +104,7 @@ export default {
               // @ts-ignore
               vm.items2.push({ id: j, name: lines[i].split(",")[j] });
             }
+            continue;
           }
           let obj = {};
 
