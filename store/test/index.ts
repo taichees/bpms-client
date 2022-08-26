@@ -1,6 +1,6 @@
 
 // 取得先のURL
-const url = "/test";
+const url = "/schema/test";
 export const state = () => ({
   //内容
   datas: null
@@ -30,9 +30,8 @@ export const actions = {
     await dispatch("getDatas");
   },
   async deleteDatas({ dispatch }: any, id: any) {
-    const data = { data: { _id: id } }
     // @ts-ignore
-    await this.$axios.delete(url, data);
+    await this.$axios.delete(url + '/' + id);
     // @ts-ignore
     await dispatch("getDatas");
   }
