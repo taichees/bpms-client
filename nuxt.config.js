@@ -37,6 +37,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     "@nuxtjs/axios",
+    '@nuxtjs/tailwindcss',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -46,7 +47,7 @@ export default {
   axios: {
     baseURL: process.env.BASE_URL || 'http://localhost:5000/',
   },
-  
+
   pwa: {
     manifest: {
       lang: 'ja',
