@@ -32,12 +32,12 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    '@nuxtjs/tailwindcss',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     "@nuxtjs/axios",
-    '@nuxtjs/tailwindcss',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
