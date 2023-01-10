@@ -97,12 +97,12 @@ export default {
       chartOptions: {
         responsive : true,
         scales: {
-          xAxes: [{
+          x: {
             stacked: true
-          }],
-          yAxes: [{
+          },
+          y: {
             stacked: true
-          }]
+          }
         },
       },
     };
