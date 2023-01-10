@@ -67,27 +67,32 @@ export default {
     },
   },
   data() {
+    //JSON取得
+    let jsonObj;
+    const http = new XMLHttpRequest();
+    http.open(
+      "GET",
+      "http://localhost:5000/schema/test_2"
+    );
+    http.send();
+    const dataset = [];
+    http.onreadystatechange = () => {
+      if (http.readyState == 4 && http.status == 200) {
+        // jsonをオブジェクトに変更
+        jsonObj = JSON.parse(http.responseText);
+        jsonObj.forEach(element => {
+        dataset.push({
+          // mongooseの中身がおかしくて、name,strで格納されていない。暫定対処でデータを取得できるように_id,__vを指定しています。ちなみに__vが0しか入っていないので、棒グラフが見えないです。
+          label: element._id,
+          data: [element.__v],
+          stack: 'stack 1'
+        })});
+      }
+    };
     return {
       chartData: {
         labels: ["languages"],
-        datasets: [{
-          label: 'Ruby',
-          data: [500],
-          backgroundColor: 'rgba( 255, 100, 100, 1 )',
-          stack: 'stack 1'
-        },
-        {
-          label: 'C#',
-          data: [300],
-          backgroundColor: 'rgba( 100, 100, 255, 1 )',
-          stack: 'stack 1'
-        },
-        {
-          label: 'Vue',
-          data: [200],
-          backgroundColor: 'rgba( 100, 255, 100, 1 )',
-          stack: 'stack 1',
-        }],
+        datasets: dataset
       },
       chartOptions: {
         responsive : true,
