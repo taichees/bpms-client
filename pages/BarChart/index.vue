@@ -51,7 +51,7 @@ export default {
     },
     height: {
       type: Number,
-      default: 400,
+      default: 150,
     },
     cssClasses: {
       default: "",
@@ -69,11 +69,36 @@ export default {
   data() {
     return {
       chartData: {
-        labels: ["January", "February", "March"],
-        datasets: [{ data: [40, 20, 12] }],
+        labels: ["languages"],
+        datasets: [{
+          label: 'Ruby',
+          data: [500],
+          backgroundColor: 'rgba( 255, 100, 100, 1 )',
+          stack: 'stack 1'
+        },
+        {
+          label: 'C#',
+          data: [300],
+          backgroundColor: 'rgba( 100, 100, 255, 1 )',
+          stack: 'stack 1'
+        },
+        {
+          label: 'Vue',
+          data: [200],
+          backgroundColor: 'rgba( 100, 255, 100, 1 )',
+          stack: 'stack 1',
+        }],
       },
       chartOptions: {
-        responsive: true,
+        responsive : true,
+        scales: {
+          xAxes: [{
+            stacked: true
+          }],
+          yAxes: [{
+            stacked: true
+          }]
+        },
       },
     };
   },
